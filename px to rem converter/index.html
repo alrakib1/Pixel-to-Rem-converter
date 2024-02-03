@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Px to rem converter</title>
+  </head>
+  <body>
+    <h1>Pixel to Rem converter</h1>
+    <form class="converter-form">
+      <input type="text" id="px" placeholder="Pixel Value" />
+      <input type="text" id="rem" placeholder="Rem Value" />
+      <p class="description">
+        This value is based on if the browser pixel is set to. Change it as you
+        please
+        <input id="b-rem" placeholder="16" value="16" />
+      </p>
+      <button type="submit" id="converter">Convert</button>
+    </form>
+    <script>
+      const px = document.getElementById("px");
+      const rem = document.getElementById("rem");
+      const bRem = document.getElementById("b-rem");
+      const converter = document.getElementById("converter");
+
+      function convertToRem(px, rem, bRem) {
+        const pxValue = px.value * 1;
+        const browserRem = bRem.value * 1;
+        const result = pxValue / browserRem;
+        return (rem.value = result);
+      }
+
+      converter.addEventListener("click", (e) => {
+        e.preventDefault();
+        convertToRem(px, rem, bRem);
+      });
+    </script>
+  </body>
+</html>
